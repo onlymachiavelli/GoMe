@@ -1,0 +1,29 @@
+# Go build and test files
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.test
+*.prof
+
+# Go generated files
+*.pb.go
+*.pb.gw.go
+*.swagger.json
+*.swagger.yaml
+swagger-ui/
+
+# Go dependency directories
+/vendor/
+/go.sum
+
+# IDE-specific files
+.idea/
+.vscode/
+
+# Logs and temporary files
+/log/
+/temp/
