@@ -2,38 +2,37 @@ package main
 
 import (
 	"fmt"
-	"onlymachiavelli/web-service-gin/helper"
+	"onlymachiavelli/web-service-gin/src/helper"
+
 	//"utils"
-	"github.com/joho/godotenv"	
+	"onlymachiavelli/web-service-gin/src/utils"
 	"os"
-	"onlymachiavelli/web-service-gin/connector"
+
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
-
-func main () {
+func main() {
 	fmt.Println("hello")
 	err := godotenv.Load()
 	if err != nil {
 		fmt.Println("error loading .env file")
 	}
-	PORT:=os.Getenv("PORT") 
-	db, err := connector.Connect()
-	if (err != nil){
-		helper.errorHandler(err)
-	}
-	defer(db.Close())
-	else {
+	PORT := os.Getenv("PORT")
+	db, err := utils.Connect()
+	//defer close the db
+	fmt.Println(db)
+	if err != nil {
+		helper.ErrorHandler(err)
+	} else {
 		fmt.Println("Connected to the database")
 	}
-
+	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "hello world",
 		})
-	}
-	)
-	r.Run(":"+PORT)
+	})
+	r.Run(":" + PORT)
 
-	
 }

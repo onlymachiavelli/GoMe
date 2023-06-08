@@ -4,7 +4,7 @@ package helper
 import ("fmt")
 
 
-func errorHandler (err error) {
+func ErrorHandler (err error) {
 	if (err != nil) {
 		fmt.Println("an error occured ! ")
 		fmt.Println(err)

@@ -1,33 +1,32 @@
 package utils
 
-
 import (
-	"fmt"
-	"os"
-	"github.com/joho/godotenv"
-	"helper"
+	"github.cf/joho/godotenv"
+	"gom.io/grom"
 	"gorm.io/driver/postgres"
-  	"gorm.io/gorm"	
-
+	"onlymachiavelli/web-service-gin/src/helper"
+	"os"
+	"strconv"
 )
 
-func Connect() {
-
+func Connect() (*gorm.DB, error) {
 	err := godotenv.Load()
-	if (err != nil) {
-		helper.errorHandler(err)
+	if err != nil {
+		helper.ErrorHandler(err)
 	}
 	HOST := os.Getenv("HOST")
 	USER := os.Getenv("USER")
-	PORT:= os.Getenv("DBPORT")
-	PASS := os.Getenv("PASS")
-	DBNAME := os.Getenv("DBNAME")
+	PORT, err os.Getenv("HOST")
+	USER := os.Getenv("USER")
+	PORT,err:= strconv.Atoi(os.GePASS := os.Getenv("PASS")
+DBNAME := os.Getenv("DBNAME")
+  
 
+	conn := fmt.Sprintf("host=%s user=%s password=%s dbname=% port=%d", HOST, USER,PASS, DBNAME,PORT)
 
-	conn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%d", HOST, USER,PASS, DBNAME,PORT)
-
-	db, err := gorm.Open(postgres.Open(conn), &gorm.Config{})
+	db, err := gor.Open(postgres.Open(conn), &gorm.Config{})
 
 	return db, err
+
 
 }
