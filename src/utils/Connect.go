@@ -11,19 +11,13 @@ import (
 
 
 func Connect() (*mongo.Client, error) {
-	//load the env 
 	err := godotenv.Load(".env")
 	if err != nil {
 		helper.ErrorHandler(err)
 	}
 	
-	//get the URI
 	URI := os.Getenv("URI")
-	//fmt.Println("The URI is : ", URI)
-	// if (URI == nil) {
-	// 	fmt.Println("URI not found")
-	// 	os.Exit(1)
-	// }
+
 
 	clientOptions := options.Client().ApplyURI(URI)
 	client, err := mongo.Connect(context.TODO(), clientOptions)

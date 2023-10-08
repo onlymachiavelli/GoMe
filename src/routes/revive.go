@@ -1,13 +1,10 @@
-package routes 
-
-
+package routes
 import (
-	//gin
 	"github.com/gin-gonic/gin"
-	//controllers	
 	"onlymachiavelli/web-service-gin/src/controllers"
 )
 func Routes(router *gin.Engine){
+
+	//to test my server in case it's serverless 
 	router.GET("/revive", controllers.Revive)
 }
-// Path: src/controllers/Revive.go
