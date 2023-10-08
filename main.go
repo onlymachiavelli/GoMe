@@ -6,6 +6,7 @@ import (
 
 	//"utils"
 	"onlymachiavelli/web-service-gin/src/utils"
+	"onlymachiavelli/web-service-gin/src/routes"
 	//"os"
 
 	"github.com/gin-gonic/gin"
@@ -28,11 +29,9 @@ func main() {
 	if err != nil {
 		helper.ErrorHandler(err)
 	}
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Welcome to the server",
-		})
-	})
+	//middle wares 
+	routes.Routes(r)
+
 	
 	defer client.Disconnect(context.TODO())
 
