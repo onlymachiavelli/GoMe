@@ -18,7 +18,7 @@ swagger-ui/
 
 # Go dependency directories
 /vendor/
-/go.sum
+#/go.sum
 
 # IDE-specific files
 .idea/
