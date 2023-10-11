@@ -4,9 +4,9 @@ package requests
 
 import (
 	//gin
-	"github.com/gin-gonic/gin"
+	//"github.com/gin-gonic/gin"
 	//mongo
-	"go.mongodb.org/mongo-driver/bson"
+	//"go.mongodb.org/mongo-driver/bson"
 )
 
 //CreateUserRequest is the struct that will be used to receive the request body

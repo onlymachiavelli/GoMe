@@ -25,6 +25,7 @@ func main() {
     }()
 
     routes.Routes(r)
+	routes.UsersRoutes(r)
 
     // Start the Gin server
     err = r.Run(); // Change the port as needed
@@ -32,4 +33,8 @@ func main() {
         //use the helper 
 		helper.ErrorHandler(err)
     }
+
+	//release mode 
+
+	
 }
